@@ -550,8 +550,33 @@ module br.com.empresa.modulo {
 					</section>
 
 					<section>
-            <h3>Inversão de Dependências</h3>
+            			<h3>Inversão de Dependências</h3>
 						<img src="images/modularizacao-inversao-de-dependencias.png"/>
+					</section>
+
+					<section>
+            			<h3>ServiceLoader API</h3>
+						<pre><code>
+module br.com.empresa.modulo {
+  //...
+  uses br.com.empresa.Servico;
+}
+
+module br.com.empresa.outro.modulo {
+  //...
+  provides br.com.empresa.Servico
+    with br.com.empresa.Implementacao;
+}
+</pre></code>
+						<p>
+							<small>
+								<a href="http://blog.caelum.com.br/plugins-em-java-com-service-providers/">Plugins em Java com Service Providers</a> (Java 8)
+							</small>
+						<br>
+							<small>
+								<a href="http://blog.caelum.com.br/simplicando-service-providers-com-modulos-do-java-9/">Simplificando Service Providers com módulos do Java 9+</a>
+							</small>
+						</p>
 					</section>
 
 					<section>
