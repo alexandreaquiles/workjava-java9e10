@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.chart.Chart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="5" prefHeight="500.0" prefWidth="700.0"
+	xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.alexandreaquiles.imc.desktop.controllers.TelaPrincipalController">
+	<children>
+		<MenuBar>
+			<Menu text="Arquivo">
+				<MenuItem text="Carregar XML..." onAction="#carregaArquivo">
+				</MenuItem>
+			</Menu>
+		</MenuBar>
+		<TabPane tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab text="Pacientes">
+					<content>
+						<TableView fx:id="tabelaPacientes">
+							<placeholder>
+								<Label text="Por favor, carregue os dados..."/>
+							</placeholder>
+							<columns>
+								<TableColumn text="Id">
+									<cellValueFactory>
+										<PropertyValueFactory property="id">
+										</PropertyValueFactory>
+									</cellValueFactory>
+								</TableColumn>
+								<TableColumn text="Nome" prefWidth="150">
+									<cellValueFactory>
+										<PropertyValueFactory property="nome">
+										</PropertyValueFactory>
+									</cellValueFactory>
+								</TableColumn>
+								<TableColumn text="Idade">
+									<cellValueFactory>
+										<PropertyValueFactory property="idade">
+										</PropertyValueFactory>
+									</cellValueFactory>
+								</TableColumn>
+								<TableColumn text="IMC">
+									<cellValueFactory>
+										<PropertyValueFactory property="imc">
+										</PropertyValueFactory>
+									</cellValueFactory>
+								</TableColumn>
+								<TableColumn text="Categoria" prefWidth="150">
+									<cellValueFactory>
+										<PropertyValueFactory property="categoriaImc">
+										</PropertyValueFactory>
+									</cellValueFactory>
+								</TableColumn>
+							</columns>
+						</TableView>
+					</content>
+				</Tab>
+				<Tab text="Estatísticas">
+					<VBox fx:id="painelEstatisticas" visible="false">
+						<children>
+							<BarChart fx:id="graficoImc" title="Histograma IMC" legendSide="RIGHT" legendVisible="false">
+								<xAxis>
+									<CategoryAxis></CategoryAxis>
+								</xAxis>
+								<yAxis>
+									<NumberAxis></NumberAxis>
+								</yAxis>
+							</BarChart>
+							<GridPane alignment="BASELINE_CENTER" hgap="10">
+								<Text styleClass="destaque" text="Mínimo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+								<Text fx:id="minimo" text="" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+								
+								<Text styleClass="destaque" text="Máximo" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+								<Text fx:id="maximo" text="" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+								
+								<Text styleClass="destaque" text="Média" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+								<Text fx:id="media" text="" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+							</GridPane>
+						</children>
+					</VBox>
+				</Tab>
+			</tabs>
+		</TabPane>
+	</children>
+</VBox>
+

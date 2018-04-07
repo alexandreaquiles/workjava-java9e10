@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pacientes>
+	<paciente id="1">
+		<nome>Alexandre</nome>
+		<dataNascimento>1981-06-26</dataNascimento>
+		<medicao>
+			<pesoEmKg>80.5</pesoEmKg>
+			<alturaEmMetros>1.83</alturaEmMetros>
+			<dataMedicao>2018-03-25</dataMedicao>
+		</medicao>
+	</paciente>
+</pacientes>
